@@ -54,7 +54,8 @@ namespace HardikVidly.Controllers
             return Content(string.Format("pageIndex= {0} & sortBy= {1}", pageIndex, sortBy));
 
         }
-
+        //using route attirubutes.
+        [Route("movies/released/{year}/{month}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
 

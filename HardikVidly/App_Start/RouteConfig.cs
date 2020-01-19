@@ -12,11 +12,7 @@ namespace HardikVidly
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            //custom route for  movie by released date
-            routes.MapRoute("MoviesByReleaseDate",
-                "movies/released/{year}/{month}",
-                new { Controller="Movies", Action="ByReleaseDate"});
-
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
