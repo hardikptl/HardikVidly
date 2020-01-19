@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HardikVidly.Models;
+using HardikVidly.ViewModels;
 
 namespace HardikVidly.Controllers
 {
@@ -14,7 +15,19 @@ namespace HardikVidly.Controllers
         {
 
             var movie = new Movie(){Name ="Die Hard"};
-            return View(movie);
+            var customers = new List<Customer>
+            {
+                new Customer{ Name = "Customer 1" },
+                new Customer{ Name = "Customer 2" }
+
+            };
+            var viewmodel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+
+            };
+            return View(viewmodel);
 
 
             //types of method you can pass in action result as per data
@@ -24,8 +37,10 @@ namespace HardikVidly.Controllers
            // return new EmptyResult();
             //return RedirectToAction("Index", "Home", "parameter 1 as parameter");
             //return Json("hardik");
-    
         }
+
+
+
         //passing value in url mvc famework atumatically mapped to edit action method
         // GET: Movies/Edit
         public ActionResult Edit(int Id)
